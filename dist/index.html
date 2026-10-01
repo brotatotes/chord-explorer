@@ -1688,7 +1688,7 @@ svg:focus-visible .kbcur { opacity: 1; }
         if (r.intervalText) h += `<p class="why">${esc(r.intervalText)}</p>`;
         if (r.alternatives.length) h += `<div class="alts"><p class="altshead">Could also be read as</p>${r.alternatives.map((a) => `<p class="alt"><b>${esc(a.name)}</b> ${esc(altWhy(a, b))}</p>`).join('')}<p class="hint">Same notes, different job. Pick a key below and the name that fits the key comes first.</p></div>`;
       }
-      panel.innerHTML = `<div class="answer" aria-live="polite">${h}</div><div class="row"><label class="inline">In the key of ${keyPicker('namekey', state.key || '', true)}</label><button id="clear">Clear</button></div>`;
+      panel.innerHTML = `<div class="answer" aria-live="polite">${h}</div><div class="row"><button id="hearname" data-play="name" aria-label="Hear the notes you picked" ${r.kind === 'empty' ? 'disabled' : ''}>▶ Hear</button><button id="clear">Clear</button></div><div class="row"><label class="inline">In the key of ${keyPicker('namekey', state.key || '', true)}</label></div>`;
       return;
     }
     if (state.mode === 'scale') {
